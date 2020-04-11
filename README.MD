@@ -92,4 +92,6 @@ RabbitMQ+dotnet core的简单应用
             channel.Close();
             connection.Close();
             
-5，RabbitMQ提供了四种Exchange模式：direct,fanout,topic,header 
+5，运行生产者项目和消费者项目，在生产者控制台输入内容，没有问题，可以在消费者控制台那边看到输出内容了
+
+6，RabbitMQ提供了四种Exchange模式：direct,fanout,topic,header 

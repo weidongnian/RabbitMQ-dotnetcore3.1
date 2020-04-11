@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="376086b1-7082-4747-8419-19e2697ece8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RabbitMQSolution/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RabbitMQSolution/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/README.MD" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,10 +21,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/MQConsumer/Program.cs" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.gitignore" />
-        <option value="$PROJECT_DIR$/MQFactory/Program.cs" />
         <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.txt" />
+        <option value="$PROJECT_DIR$/MQConsumer/Program.cs" />
+        <option value="$PROJECT_DIR$/MQFactory/Program.cs" />
       </list>
     </option>
   </component>
@@ -84,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586592800405</updated>
-      <workItem from="1586592804948" duration="7302000" />
+      <workItem from="1586592804948" duration="7774000" />
     </task>
     <servers />
   </component>
