@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQFactory", "MQFactory\MQFactory.csproj", "{3A04D903-6B1C-4251-BDD1-24A5E64D1212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MQConsumer", "MQConsumer\MQConsumer.csproj", "{3EAF3E41-7841-4B5F-B1A3-AF149F18AFCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A04D903-6B1C-4251-BDD1-24A5E64D1212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A04D903-6B1C-4251-BDD1-24A5E64D1212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A04D903-6B1C-4251-BDD1-24A5E64D1212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A04D903-6B1C-4251-BDD1-24A5E64D1212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EAF3E41-7841-4B5F-B1A3-AF149F18AFCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EAF3E41-7841-4B5F-B1A3-AF149F18AFCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EAF3E41-7841-4B5F-B1A3-AF149F18AFCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EAF3E41-7841-4B5F-B1A3-AF149F18AFCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

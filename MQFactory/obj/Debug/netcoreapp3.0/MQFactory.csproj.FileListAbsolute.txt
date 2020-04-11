@@ -1,0 +1,12 @@
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/bin/Debug/netcoreapp3.0/MQFactory.deps.json
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/bin/Debug/netcoreapp3.0/MQFactory.runtimeconfig.json
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/bin/Debug/netcoreapp3.0/MQFactory.runtimeconfig.dev.json
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/bin/Debug/netcoreapp3.0/MQFactory.dll
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/bin/Debug/netcoreapp3.0/MQFactory.pdb
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.csprojAssemblyReference.cache
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.AssemblyInfoInputs.cache
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.AssemblyInfo.cs
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.dll
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.pdb
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/bin/Debug/netcoreapp3.0/RabbitMQ.Client.dll
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.csproj.CopyComplete
