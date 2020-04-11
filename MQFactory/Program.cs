@@ -24,7 +24,7 @@ namespace MQFactory
             {
                 UserName = "guest",
                 Password = "guest",
-                HostName = "120.79.240.230"
+                HostName = "*.*.*.*"
             };
             
             //创建链接
