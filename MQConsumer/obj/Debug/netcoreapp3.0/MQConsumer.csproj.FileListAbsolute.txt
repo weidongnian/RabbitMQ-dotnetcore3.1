@@ -10,3 +10,5 @@
 /Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConsumer/obj/Debug/netcoreapp3.0/MQConsumer.csproj.CopyComplete
 /Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConsumer/obj/Debug/netcoreapp3.0/MQConsumer.dll
 /Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConsumer/obj/Debug/netcoreapp3.0/MQConsumer.pdb
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConsumer/bin/Debug/netcoreapp3.0/MQConfig.dll
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConsumer/bin/Debug/netcoreapp3.0/MQConfig.pdb

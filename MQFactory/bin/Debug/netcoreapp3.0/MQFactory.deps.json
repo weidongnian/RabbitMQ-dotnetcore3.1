@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.0": {
       "MQFactory/1.0.0": {
         "dependencies": {
+          "MQConfig": "1.0.0",
           "RabbitMQ.Client": "5.1.2"
         },
         "runtime": {
@@ -20,6 +21,11 @@
             "assemblyVersion": "5.0.0.0",
             "fileVersion": "5.1.2.0"
           }
+        }
+      },
+      "MQConfig/1.0.0": {
+        "runtime": {
+          "MQConfig.dll": {}
         }
       }
     }
@@ -36,6 +42,11 @@
       "sha512": "sha512-Xhj+un0pw4N7h37SZWptxl/NEv7f1RLHwZhXjqzkCm3w3IdbFJh+HjVyPaciD848BUYLGoEQzadx90nShsbs4Q==",
       "path": "rabbitmq.client/5.1.2",
       "hashPath": "rabbitmq.client.5.1.2.nupkg.sha512"
+    },
+    "MQConfig/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

@@ -10,6 +10,16 @@
         "runtime": {
           "lib/netstandard2.0/RabbitMQ.Client.dll": {}
         }
+      },
+      "MQConfig/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/MQConfig.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MQConfig.dll": {}
+        }
       }
     }
   },
@@ -30,10 +40,16 @@
         "rabbitmq.client.5.1.2.nupkg.sha512",
         "rabbitmq.client.nuspec"
       ]
+    },
+    "MQConfig/1.0.0": {
+      "type": "project",
+      "path": "../MQConfig/MQConfig.csproj",
+      "msbuildProject": "../MQConfig/MQConfig.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.0": [
+      "MQConfig >= 1.0.0",
       "RabbitMQ.Client >= 5.1.2"
     ]
   },
@@ -64,7 +80,11 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/MQConfig.csproj": {
+              "projectPath": "/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/MQConfig.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

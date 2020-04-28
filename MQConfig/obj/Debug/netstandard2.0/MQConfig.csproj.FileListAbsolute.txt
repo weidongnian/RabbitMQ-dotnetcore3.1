@@ -1,0 +1,8 @@
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/bin/Debug/netstandard2.0/MQConfig.deps.json
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/bin/Debug/netstandard2.0/MQConfig.dll
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/bin/Debug/netstandard2.0/MQConfig.pdb
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/obj/Debug/netstandard2.0/MQConfig.csprojAssemblyReference.cache
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/obj/Debug/netstandard2.0/MQConfig.AssemblyInfoInputs.cache
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/obj/Debug/netstandard2.0/MQConfig.AssemblyInfo.cs
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/obj/Debug/netstandard2.0/MQConfig.dll
+/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/obj/Debug/netstandard2.0/MQConfig.pdb
