@@ -12,19 +12,3 @@
 /Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.csproj.CopyComplete
 /Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/bin/Debug/netcoreapp3.0/MQConfig.dll
 /Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/bin/Debug/netcoreapp3.0/MQConfig.pdb
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/bin/Debug/netcoreapp3.0/MQFactory.deps.json
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/bin/Debug/netcoreapp3.0/MQFactory.runtimeconfig.json
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/bin/Debug/netcoreapp3.0/MQFactory.runtimeconfig.dev.json
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/bin/Debug/netcoreapp3.0/MQFactory.dll
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/bin/Debug/netcoreapp3.0/MQFactory.pdb
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/bin/Debug/netcoreapp3.0/RabbitMQ.Client.dll
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/bin/Debug/netcoreapp3.0/MQConfig.dll
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/bin/Debug/netcoreapp3.0/MQConfig.pdb
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.csprojAssemblyReference.cache
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.AssemblyInfoInputs.cache
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.AssemblyInfo.cs
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.csproj.CoreCompileInputs.cache
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.csproj.CopyComplete
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.dll
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.pdb
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/obj/Debug/netcoreapp3.0/MQFactory.genruntimeconfig.cache

@@ -6,12 +6,3 @@
 /Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/obj/Debug/netstandard2.0/MQConfig.AssemblyInfo.cs
 /Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/obj/Debug/netstandard2.0/MQConfig.dll
 /Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/obj/Debug/netstandard2.0/MQConfig.pdb
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQConfig/bin/Debug/netstandard2.0/MQConfig.deps.json
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQConfig/bin/Debug/netstandard2.0/MQConfig.dll
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQConfig/bin/Debug/netstandard2.0/MQConfig.pdb
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQConfig/obj/Debug/netstandard2.0/MQConfig.csprojAssemblyReference.cache
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQConfig/obj/Debug/netstandard2.0/MQConfig.AssemblyInfoInputs.cache
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQConfig/obj/Debug/netstandard2.0/MQConfig.AssemblyInfo.cs
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQConfig/obj/Debug/netstandard2.0/MQConfig.csproj.CoreCompileInputs.cache
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQConfig/obj/Debug/netstandard2.0/MQConfig.dll
-/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQConfig/obj/Debug/netstandard2.0/MQConfig.pdb
