@@ -149,8 +149,22 @@
     };
 
     var send = function () {
+        // client.send(
+        //     '/exchange/EquipmentEvents/websocker',
+        //     {
+        //         'x-queue-name': 'wdn-q',
+        //     },
+        //     JSON.stringify({
+        //         Code: 200,
+        //         Msg: '客户端发的消息',
+        //         Success: 'True',
+        //         Data: true,
+        //         Exten: null,
+        //     })
+        // );
+
         client.send(
-            '/exchange/EquipmentEvents/websocker',
+            '/exchange/wdn.topic/wdn.dongnian',
             {
                 'x-queue-name': 'wdn-q',
             },

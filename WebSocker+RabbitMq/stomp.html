@@ -117,6 +117,18 @@
                     durable: true,
                 }
             );
+
+            client.subscribe(
+                '/exchange/wdn.topic/wdn.dongnian',
+                function (frame) {
+                    console.log('收到消息啦,topic 模式,wdn.dongnian');
+                    console.log(frame);
+                },
+                {
+                    'x-queue-name': 'wdn-q2-topic.#',
+                    durable: true,
+                }
+            );
         };
 
         // Declare on_error
