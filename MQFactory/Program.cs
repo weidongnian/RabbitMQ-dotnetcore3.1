@@ -24,6 +24,7 @@ namespace MQFactory {
             //     },
             //     ExchangeType.Direct);
 
+            //topic,可以做一对一，一对多的即时通讯和聊天，routekey=用户的唯一标识
             StartFactory (new Config {
                     ExChangeName = "wdn.topic",
                         QueName = "wdn.topic",
