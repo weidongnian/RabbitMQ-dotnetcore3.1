@@ -1,4 +1,3 @@
-
 RabbitMQ+dotnet core的简单应用
 
 1，创建空白解决方案，创建生产者控制台项目,引用RabbitMQ.Client库
@@ -95,3 +94,7 @@ RabbitMQ+dotnet core的简单应用
 5，运行生产者项目和消费者项目，在生产者控制台输入内容，没有问题，可以在消费者控制台那边看到输出内容了
 
 6，RabbitMQ提供了四种Exchange模式：direct,fanout,topic,header 
+
+7，topic 可以做一对一，一对多的即时通讯和聊天，routekey=用户的唯一标识
+
+10,客户端如何保护密码的问题

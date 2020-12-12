@@ -3,11 +3,11 @@
 namespace MQConfig
 {
    public class Config {
-        public string HostName { get; set; } = "*.*.240.230";
-        public string UserName { get; set; } = "guest";
-        public string Password { get; set; } = "guest";
-        public string QueName { get; set; } = "hello";
-        public string ExChangeName { get; set; } = "exHello";
-        public string RouteKey { get; set; } = "hello";
+        public string HostName { get; set; } = "127.0.0.1";
+        public string UserName { get; set; } = "yjian";
+        public string Password { get; set; } = "yjian";
+        public string QueName { get; set; } = "Factory";
+        public string ExChangeName { get; set; } = "EquipmentEvents";
+        public string RouteKey { get; set; } = "chat";
     }
 }

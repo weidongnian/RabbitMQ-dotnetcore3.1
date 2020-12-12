@@ -8,10 +8,35 @@ namespace MQFactory {
     class Program {
         static void Main (string[] args) {
             Console.WriteLine ("MQ生产者 starting!");
-            //StartFactoryByDirect (new Config ());
+
+            //不用定义队列
+            // StartFactory (new Config {
+            //         ExChangeName = "Fanout",
+            //             QueName = "dotnetQn",
+            //             RouteKey = "websocker"
+            //     },
+            //     ExchangeType.Fanout);
+
+            // StartFactory (new Config {
+            //         ExChangeName = "EquipmentEvents",
+            //             QueName = "dotnetQn",
+            //             RouteKey = "websocker"
+            //     },
+            //     ExchangeType.Direct);
+
+            StartFactory (new Config {
+                    ExChangeName = "wdn.topic",
+                        QueName = "wdn.topic",
+                        RouteKey = "wdn"
+                },
+                ExchangeType.Topic);
 
             //Fanout方式,广播模式
-            StartFactoryByDFanout (new Config { ExChangeName = "fanoutExChange", QueName = "fanoutQN" });
+            // StartFactoryByDFanout (new Config {
+            //     ExChangeName = "EquipmentEvents",
+            //         QueName = "dotnetQn",
+            //         RouteKey = "websocker"
+            // });
         }
 
         #region Fanout方式,广播模式
@@ -69,13 +94,13 @@ namespace MQFactory {
         }
         #endregion
 
-        #region Direct方式
-        static void StartFactoryByDirect (Config config) {
+        #region Direct方式,不用定义队列
+        static void StartFactory (Config config, string exchangeType = "direct") {
             //创建工厂
             ConnectionFactory factory = new ConnectionFactory {
-                UserName = config.UserName,
-                Password = config.Password,
-                HostName = config.HostName
+            UserName = config.UserName,
+            Password = config.Password,
+            HostName = config.HostName
             };
 
             //创建链接
@@ -85,28 +110,17 @@ namespace MQFactory {
             var channel = connection.CreateModel ();
 
             //定义交换机
-            var extype = ExchangeType.Direct;
-            Console.WriteLine ("==>ExchangeDeclare");
+            Console.WriteLine ("==>ExchangeDeclare," + exchangeType);
 
-            if (extype == ExchangeType.Fanout) {
-                //channel.ExchangeDeclare (exChangeName, extype);
-                channel.ExchangeDeclare (config.ExChangeName, "fanout");
-            } else {
-                channel.ExchangeDeclare (config.ExChangeName, extype, false, false, null);
-            }
+            channel.ExchangeDeclare (config.ExChangeName, exchangeType,
+                true,
+                false,
+                null);
 
             Console.WriteLine ("==>QueueDeclare");
 
-            //声明队列
-            //生产者将消息投递到Queue中，实际上这在RabbitMQ中这种事情永远都不会发生
-            //将队列绑定到交换机
-            if (extype == ExchangeType.Fanout) {
-                channel.QueueDeclare (config.QueName);
-                channel.QueueBind (config.QueName, config.ExChangeName, "", null);
-            } else {
-                channel.QueueDeclare (config.QueName, false, false, false, null);
-                channel.QueueBind (config.QueName, config.ExChangeName, config.RouteKey, null);
-            }
+            //channel.QueueDeclare (config.QueName, false, false, false, null);
+            //channel.QueueBind (config.QueName, config.ExChangeName, config.RouteKey, null);
 
             Console.WriteLine ("\nRabbitMQ连接成功，请输入消息，输入exit退出！");
 
@@ -114,15 +128,11 @@ namespace MQFactory {
 
             do {
                 input = Console.ReadLine ();
-
                 var sendBytes = Encoding.UTF8.GetBytes (input);
-
                 //发布消息
-                if (extype == ExchangeType.Fanout) {
-                    channel.BasicPublish (config.ExChangeName, "", null, sendBytes);
-                } else
-                    channel.BasicPublish (config.ExChangeName, config.RouteKey, null, sendBytes);
-
+                string routeKey = config.RouteKey;
+                //if (exchangeType == ExchangeType.Fanout) routeKey = "";
+                channel.BasicPublish (config.ExChangeName, routeKey, null, sendBytes);
             } while (input?.Trim ().ToLower () != "exit");
 
             channel.Close ();

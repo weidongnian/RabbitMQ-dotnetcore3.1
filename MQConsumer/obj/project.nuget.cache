@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "YgFUwX0w1ZJDR4ZkjO04ul12mGbwjjnnhhQR3m8uarFd0Y8XqMNgjxBYnz5OeIyD5ALm9Qgwfag6kYkxz7AYQA==",
+  "success": true,
+  "projectFilePath": "/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQConsumer/MQConsumer.csproj",
+  "expectedPackageFiles": [
+    "/Users/weidongnian/.nuget/packages/rabbitmq.client/5.1.2/rabbitmq.client.5.1.2.nupkg.sha512",
+    "/Users/weidongnian/.nuget/packages/microsoft.aspnetcore.app.ref/3.0.1/microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

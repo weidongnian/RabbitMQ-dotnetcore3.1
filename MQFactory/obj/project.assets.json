@@ -60,11 +60,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/MQFactory.csproj",
+      "projectUniqueName": "/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/MQFactory.csproj",
       "projectName": "MQFactory",
-      "projectPath": "/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/MQFactory.csproj",
+      "projectPath": "/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/MQFactory.csproj",
       "packagesPath": "/Users/weidongnian/.nuget/packages/",
-      "outputPath": "/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQFactory/obj/",
+      "outputPath": "/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQFactory/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -80,9 +80,10 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "targetAlias": "netcoreapp3.0",
           "projectReferences": {
-            "/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/MQConfig.csproj": {
-              "projectPath": "/Volumes/TOSHIBA EXT/Code/RabbitMQSolution/MQConfig/MQConfig.csproj"
+            "/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQConfig/MQConfig.csproj": {
+              "projectPath": "/Users/weidongnian/GitHub/RabbitMQ-dotnetcore3.1/MQConfig/MQConfig.csproj"
             }
           }
         }
@@ -95,6 +96,7 @@
     },
     "frameworks": {
       "netcoreapp3.0": {
+        "targetAlias": "netcoreapp3.0",
         "dependencies": {
           "RabbitMQ.Client": {
             "target": "Package",
@@ -122,7 +124,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
