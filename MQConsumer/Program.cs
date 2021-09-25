@@ -13,7 +13,9 @@ namespace MQConsumer
         static void Main(string[] args)
         {
             Console.WriteLine("队列的消费者 starting!");
-            StartByDirect(new Config {ExChangeName = "amq.direct", QueName = "wdn.queue"});
+            StartByDirect(new Config {ExChangeName = "amq.direct", 
+                RouteKey = "SlaveEvent",
+                QueName = "Szyj.Microservice.EventCenter.Slave0"});
         }
 
         static void StartByDirect(Config config)

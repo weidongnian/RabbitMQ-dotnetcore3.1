@@ -27,7 +27,9 @@ namespace MQFactory {
 
             //topic,可以做一对一，一对多的即时通讯和聊天，routekey=用户的唯一标识
             StartFactory (new Config {
-                    ExChangeName = "amq.direct", QueName = "wdn.factory"
+                    ExChangeName = "EquipmentEvents", 
+                    QueName = "Szyj.Microservice.EventCenter.Factory",
+                    RouteKey = "TestEvent"
                 },
                 ExchangeType.Direct);
 
