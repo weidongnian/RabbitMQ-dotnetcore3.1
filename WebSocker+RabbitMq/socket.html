@@ -1,49 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <script>
-            var socket;
-            function connect() {
-                var host = 'ws://202.105.130.202:9999/sz';
-                socket = new WebSocket(host);
-                try {
-                    socket.onopen = function (msg) {
-                        //$('btnConnect').disabled = true;
-                        console.log('连接成功！');
-                    };
 
-                    socket.onmessage = function (msg) {
-                        if (typeof msg.data == 'string') {
-                            displayContent(msg.data);
-                        } else {
-                            console.log('非文本消息');
-                        }
-                    };
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        var socket;
+        function connect() {
+            var host = 'ws://202.105.130.202:9999/sz';
+            host = 'ws://192.168.1.162/ws/EmrService/push';
 
-                    socket.onclose = function (msg) {
-                        console.log('socket closed!');
-                    };
-                } catch (ex) {
-                    console.error('error');
-                    console.error(ex);
-                }
+            socket = new WebSocket(host);
+            try {
+                socket.onopen = function (msg) {
+                    //$('btnConnect').disabled = true;
+                    console.log('连接成功！');
+                };
+
+                socket.onmessage = function (msg) {
+                    if (typeof msg.data == 'string') {
+                        displayContent(msg.data);
+                    } else {
+                        console.log('非文本消息');
+                    }
+                };
+
+                socket.onclose = function (msg) {
+                    console.log('socket closed!');
+                };
+            } catch (ex) {
+                console.error('error');
+                console.error(ex);
             }
+        }
 
-            function send() {
-                var msg = $('sendText').value + '\0';
-                socket.send(msg);
-            }
+        function send() {
+            var msg = $('sendText').value + '\0';
+            socket.send(msg);
+        }
 
-            window.onbeforeunload = function () {
-                try {
-                    socket.close();
-                    socket = null;
-                } catch (ex) {}
-            };
-        </script>
-    </head>
-    <body></body>
+        window.onbeforeunload = function () {
+            try {
+                socket.close();
+                socket = null;
+            } catch (ex) { }
+        };
+    </script>
+</head>
+
+<body></body>
+
 </html>

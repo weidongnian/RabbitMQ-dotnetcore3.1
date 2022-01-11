@@ -1,59 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script type="text/javascript" src="./stomp.js"></script>
-        <title>index-websocket+rabbitmq</title>
-        <style>
-            table tbody tr.odd {
-                background-color: #f7f7f7;
-            }
-            table tbody tr.even {
-                background-color: #fff;
-            }
-            table tbody tr:hover {
-                background-color: rgb(9, 245, 9);
-            }
-            table tbody td {
-                color: rgb(14, 13, 13);
-                padding: 2px;
-                border: 0;
-            }
-            table tbody tr:hover td {
-                color: #444;
-            }
-            table,
-            table tr th,
-            table tr td {
-                border: 1px solid #0094ff;
-            }
-            table {
-                text-align: center;
-                border-collapse: collapse;
-            }
-        </style>
-    </head>
-    <body>
-        <div>
-            <table style="width: 95%; margin: 10px auto">
-                <thead>
-                    <tr>
-                        <th>websocket+rabbitmq</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <button onclick="start()">开 启</button>
 
-                            <button onclick="send()">发 送</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </body>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="text/javascript" src="./stomp.js"></script>
+    <title>index-websocket+rabbitmq</title>
+    <style>
+        table tbody tr.odd {
+            background-color: #f7f7f7;
+        }
+
+        table tbody tr.even {
+            background-color: #fff;
+        }
+
+        table tbody tr:hover {
+            background-color: rgb(9, 245, 9);
+        }
+
+        table tbody td {
+            color: rgb(14, 13, 13);
+            padding: 2px;
+            border: 0;
+        }
+
+        table tbody tr:hover td {
+            color: #444;
+        }
+
+        table,
+        table tr th,
+        table tr td {
+            border: 1px solid #0094ff;
+        }
+
+        table {
+            text-align: center;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <table style="width: 95%; margin: 10px auto">
+            <thead>
+                <tr>
+                    <th>websocket+rabbitmq</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <button onclick="start()">开 启</button>
+
+                        <button onclick="send()">发 送</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
 </html>
 <script>
     //csdn
@@ -70,7 +79,7 @@
         // Stomp.js boilerplate
         if (typeof WebSocket === 'function') {
             console.log('ws协议...');
-            ws = new WebSocket('ws://127.0.0.1:15674/ws');
+            ws = new WebSocket('ws://192.168.0.253:15674/ws');
             //wss://dev.szyjian.com/sz
             //ws = new WebSocket('wss://dev.szyjian.com/sz');
         }
@@ -91,40 +100,40 @@
             console.log('connected');
             //client.send('/exchange/EquipmentEvents/websocker', {}, "Hello");
             client.subscribe(
-                '/exchange/EquipmentEvents/websocker',
+                '/exchange/EquipmentEvents/SixCenterMessage',
                 function (frame) {
                     console.log('收到消息啦，direct 模式');
                     console.log(frame);
                 },
                 {
-                    'x-queue-name': 'wdn-q2',
+                    'x-queue-name': 'wdn-SixCenterMessage-q2',
                     durable: true,
                 }
             );
 
-            client.subscribe(
-                '/exchange/Fanout/websocker',
-                function (frame) {
-                    console.log('收到消息啦,Fanout 模式');
-                    console.log(frame);
-                },
-                {
-                    'x-queue-name': 'wdn-q2-Fanout',
-                    durable: true,
-                }
-            );
+            // client.subscribe(
+            //     '/exchange/Fanout/websocker',
+            //     function (frame) {
+            //         console.log('收到消息啦,Fanout 模式');
+            //         console.log(frame);
+            //     },
+            //     {
+            //         'x-queue-name': 'wdn-q2-Fanout',
+            //         durable: true,
+            //     }
+            // );
 
-            client.subscribe(
-                '/exchange/wdn.topic/topic.*',
-                function (frame) {
-                    console.log('收到消息啦,topic 模式,topic.*');
-                    console.log(frame);
-                },
-                {
-                    'x-queue-name': 'wdn-q2-topic.*',
-                    durable: true,
-                }
-            );
+            // client.subscribe(
+            //     '/exchange/wdn.topic/topic.*',
+            //     function (frame) {
+            //         console.log('收到消息啦,topic 模式,topic.*');
+            //         console.log(frame);
+            //     },
+            //     {
+            //         'x-queue-name': 'wdn-q2-topic.*',
+            //         durable: true,
+            //     }
+            // );
         };
 
         // Declare on_error
@@ -134,37 +143,25 @@
             console.log(b);
             console.log(c);
             console.log('重新连接....');
-            start();
+            setTimeout(() => {
+                start();
+            }, 2000);
         };
 
         // Conect to RabbitMQ
         var headers = {
-            login: 'yjian',
-            passcode: 'yjian',
+            login: 'guest',
+            passcode: 'guest',
             // additional header
-            'client-id': 'wdn-client-id',
+            'client-id': 'wdn-client-id-2',
         };
         client.connect(headers, on_connect, on_error, '/');
         //client.connect('yjian', 'yjian', on_connect, on_error, '/');
     };
 
     var send = function () {
-        // client.send(
-        //     '/exchange/EquipmentEvents/websocker',
-        //     {
-        //         'x-queue-name': 'wdn-q',
-        //     },
-        //     JSON.stringify({
-        //         Code: 200,
-        //         Msg: '客户端发的消息',
-        //         Success: 'True',
-        //         Data: true,
-        //         Exten: null,
-        //     })
-        // );
-
         client.send(
-            '/exchange/wdn.topic/wdn.dongnian',
+            '/exchange/EquipmentEvents/websocker',
             {
                 'x-queue-name': 'wdn-q',
             },
@@ -176,5 +173,19 @@
                 Exten: null,
             })
         );
+
+        // client.send(
+        //     '/exchange/wdn.topic/wdn.dongnian',
+        //     {
+        //         'x-queue-name': 'wdn-q',
+        //     },
+        //     JSON.stringify({
+        //         Code: 200,
+        //         Msg: '客户端发的消息',
+        //         Success: 'True',
+        //         Data: true,
+        //         Exten: null,
+        //     })
+        // );
     };
 </script>
