@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using MQConfig;
 using RabbitMQ.Client;
@@ -26,11 +27,11 @@ namespace MQFactory {
 
             //topic,可以做一对一，一对多的即时通讯和聊天，routekey=用户的唯一标识
             StartFactory (new Config {
-                    ExChangeName = "wdn.topic",
-                        QueName = "wdn.topic",
-                        RouteKey = "wdn"
+                    ExChangeName = "EquipmentEvents", 
+                    QueName = "Szyj.Microservice.EventCenter.Factory",
+                    RouteKey = "TestEvent"
                 },
-                ExchangeType.Topic);
+                ExchangeType.Direct);
 
             //Fanout方式,广播模式
             // StartFactoryByDFanout (new Config {
@@ -98,48 +99,37 @@ namespace MQFactory {
         #region Direct方式,不用定义队列
         static void StartFactory (Config config, string exchangeType = "direct") {
             //创建工厂
-            ConnectionFactory factory = new ConnectionFactory {
+           ConnectionFactory factory = new ConnectionFactory {
             UserName = config.UserName,
             Password = config.Password,
             HostName = config.HostName
             };
 
             //创建链接
-            var connection = factory.CreateConnection ();
+            using var connection = factory.CreateConnection ();
 
             //创建通道
-            var channel = connection.CreateModel ();
+            using var channel = connection.CreateModel ();
 
             //定义交换机
             Console.WriteLine ("==>ExchangeDeclare," + exchangeType);
-
-            channel.ExchangeDeclare (config.ExChangeName, exchangeType,
+            
+            channel.ExchangeDeclare(config.ExChangeName, exchangeType,
                 true,
                 false,
                 null);
-
-            Console.WriteLine ("==>QueueDeclare");
-
-            //channel.QueueDeclare (config.QueName, false, false, false, null);
-            //channel.QueueBind (config.QueName, config.ExChangeName, config.RouteKey, null);
-
             Console.WriteLine ("\nRabbitMQ连接成功，请输入消息，输入exit退出！");
 
             string input = "";
-
             do {
                 input = Console.ReadLine ();
                 var sendBytes = Encoding.UTF8.GetBytes (input);
                 //发布消息
                 string routeKey = config.RouteKey;
-                //if (exchangeType == ExchangeType.Fanout) routeKey = "";
                 channel.BasicPublish (config.ExChangeName, routeKey, null, sendBytes);
             } while (input?.Trim ().ToLower () != "exit");
-
-            channel.Close ();
-
-            connection.Close ();
         }
+        
         #endregion
     }
 }

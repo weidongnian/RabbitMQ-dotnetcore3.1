@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
@@ -12,8 +13,9 @@ namespace MQConsumer
         static void Main(string[] args)
         {
             Console.WriteLine("队列的消费者 starting!");
-
-            StartByDirect(new Config{ExChangeName="fanoutExChange", QueName = "fanoutQN"});
+            StartByDirect(new Config {ExChangeName = "amq.direct", 
+                RouteKey = "SlaveEvent",
+                QueName = "Szyj.Microservice.EventCenter.Slave0"});
         }
 
         static void StartByDirect(Config config)
@@ -28,28 +30,33 @@ namespace MQConsumer
             var connection = factory.CreateConnection();
 
             var channel = connection.CreateModel();
+            
+            var arguments = new Dictionary<string, object>() { { "x-queue-type", "classic" } };
+            
+            channel.QueueDeclare(queue: config.QueName, durable: true, exclusive: false, autoDelete: false, arguments: arguments);
 
-            channel.QueueBind (config.QueName, config.ExChangeName, "");
-            
+            channel.QueueBind(config.QueName, config.ExChangeName, config.RouteKey);
+
             //事件基本消费者
-            EventingBasicConsumer ebConsumer=new EventingBasicConsumer(channel);
-            
+            EventingBasicConsumer ebConsumer = new EventingBasicConsumer(channel);
+
             //接收到消息事件
-            ebConsumer.Received += (ch,ea) =>
+            ebConsumer.Received += (ch, ea) =>
             {
                 var message = Encoding.UTF8.GetString(ea.Body);
-
-                Console.WriteLine("收到消息了："+message);
-
+                Console.WriteLine("收到消息了：" + message);
+                
+                //在这里转发一下队列
                 //确认该消息已被消费
-                channel.BasicAck(ea.DeliveryTag,true);
+                channel.BasicAck(ea.DeliveryTag, true);
             };
-            
+
             //启动消费者 设置为手动应答消息
             channel.BasicConsume(config.QueName, false, ebConsumer);
-            
+
             Console.Write("消费者已经开启");
             Console.ReadKey();
+            
             channel.Close();
             connection.Close();
         }

@@ -1,8 +1,9 @@
 MQConsumer/bin/
-MQConsumer/obj/Debug/
+MQConsumer/obj/
+
 
 MQFactory/bin/
-MQFactory/obj/Debug/
+MQFactory/obj/
 
 #1，docker study and run authserver
 #2，identity4 for dotnet core
@@ -11,3 +12,19 @@ MQFactory/obj/Debug/
 *.dll
 .pdb
 .log
+
+
+**/.DS_Store
+
+.DS_Store
+
+/.idea/
+
+/MQConfig/bin/
+/MQConfig/obj/
+
+/MQConsumer/bin/
+/MQConsumer/obj/
+
+/MQFactory/bin/
+/MQFactory/obj/
