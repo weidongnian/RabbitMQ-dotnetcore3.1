@@ -33,7 +33,7 @@
             connection.on("ReceiveMsg", d => {
                 console.log('==收到websocket啦');
                 console.log(d);
-                debugger
+                
                 if (d && d.data != undefined)
                     switch (d.data) {
                         case 1:
@@ -75,6 +75,8 @@
                 await start();
             });
         }
+
+        setTimeout(start, 1000);
     </script>
 </head>
 
