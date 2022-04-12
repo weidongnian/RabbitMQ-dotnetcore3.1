@@ -70,7 +70,8 @@
         // Stomp.js boilerplate
         if (typeof WebSocket === 'function') {
             console.log('ws协议...');
-            ws = new WebSocket('ws://127.0.0.1:15674/ws');
+            //ws = new WebSocket('ws://172.20.10.3:15674/ws');
+            ws = new WebSocket('ws://localhost:9888/ws');
             //wss://dev.szyjian.com/sz
             //ws = new WebSocket('wss://dev.szyjian.com/sz');
         }
@@ -102,29 +103,29 @@
                 }
             );
 
-            client.subscribe(
-                '/exchange/Fanout/websocker',
-                function (frame) {
-                    console.log('收到消息啦,Fanout 模式');
-                    console.log(frame);
-                },
-                {
-                    'x-queue-name': 'wdn-q2-Fanout',
-                    durable: true,
-                }
-            );
+            // client.subscribe(
+            //     '/exchange/Fanout/websocker',
+            //     function (frame) {
+            //         console.log('收到消息啦,Fanout 模式');
+            //         console.log(frame);
+            //     },
+            //     {
+            //         'x-queue-name': 'wdn-q2-Fanout',
+            //         durable: true,
+            //     }
+            // );
 
-            client.subscribe(
-                '/exchange/wdn.topic/topic.*',
-                function (frame) {
-                    console.log('收到消息啦,topic 模式,topic.*');
-                    console.log(frame);
-                },
-                {
-                    'x-queue-name': 'wdn-q2-topic.*',
-                    durable: true,
-                }
-            );
+            // client.subscribe(
+            //     '/exchange/wdn.topic/topic.*',
+            //     function (frame) {
+            //         console.log('收到消息啦,topic 模式,topic.*');
+            //         console.log(frame);
+            //     },
+            //     {
+            //         'x-queue-name': 'wdn-q2-topic.*',
+            //         durable: true,
+            //     }
+            // );
         };
 
         // Declare on_error
@@ -134,7 +135,9 @@
             console.log(b);
             console.log(c);
             console.log('重新连接....');
-            start();
+            setTimeout(() => {
+                start();
+            }, 5000);
         };
 
         // Conect to RabbitMQ
@@ -164,7 +167,7 @@
         // );
 
         client.send(
-            '/exchange/wdn.topic/wdn.dongnian',
+            '/exchange/EquipmentEvents/websocker',
             {
                 'x-queue-name': 'wdn-q',
             },

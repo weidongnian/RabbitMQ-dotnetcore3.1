@@ -60,7 +60,7 @@
         var ws;
         if (typeof WebSocket === 'function') {
             console.log('ws协议...');
-            ws = new WebSocket('ws://127.0.0.1:15674/ws');
+            ws = new WebSocket('ws://127.0.0.1/:15674/ws');
             //wss://dev.szyjian.com/sz
             //ws = new WebSocket('wss://dev.szyjian.com/sz');
         }
@@ -138,7 +138,9 @@
             console.log(b);
             console.log(c);
             console.log('重新连接....');
-            start();
+            setTimeout(() => {
+                start();
+            }, 5000);
         };
 
         var headers = {
