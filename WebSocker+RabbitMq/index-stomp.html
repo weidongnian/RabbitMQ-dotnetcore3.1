@@ -79,12 +79,7 @@
         // Stomp.js boilerplate
         if (typeof WebSocket === 'function') {
             console.log('ws协议...');
-<<<<<<< HEAD
-            //ws = new WebSocket('ws://172.20.10.3:15674/ws');
-            ws = new WebSocket('ws://localhost:9888/ws');
-=======
             ws = new WebSocket('ws://192.168.0.253:15674/ws');
->>>>>>> 7e25922db0067b5316807b18ce0ae8c09522b7f2
             //wss://dev.szyjian.com/sz
             //ws = new WebSocket('wss://dev.szyjian.com/sz');
         }
@@ -150,11 +145,7 @@
             console.log('重新连接....');
             setTimeout(() => {
                 start();
-<<<<<<< HEAD
-            }, 5000);
-=======
             }, 2000);
->>>>>>> 7e25922db0067b5316807b18ce0ae8c09522b7f2
         };
 
         // Conect to RabbitMQ
