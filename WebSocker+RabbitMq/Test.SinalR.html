@@ -1,89 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>测试SinalR+websocket连接</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script>
-    <script>
-        var start = function () {
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="base.css" />
+        <title>测试SinalR+websocket连接</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script>
+        <script>
             var connection = null;
-            var _api = '/api/stroke/messaging';
-            _api = 'http://192.168.1.162/ws/AggregateService/push';
-            //_api='http://192.168.1.162:59001/push';
-            //_api="http://localhost:5005/push";
+            //https://ocelot.readthedocs.io/en/latest/features/websockets.html
+            // ocelot 要支持 websocket
+            var start = function () {
+                var _api = '/api/stroke/messaging';
+                //_api = 'http://192.168.1.162/ws/AggregateService/push';
+                //_api = 'http://localhost:9101/api/events/my-messaging-hub';
+                _api = 'http://localhost:9888/api/config/events/my-messaging-hub';
+                //_api='http://192.168.1.162:59001/push';
+                //_api="http://localhost:5005/push";
 
-            var init = () => {
-                connection = new signalR.HubConnectionBuilder()
-                    .withUrl(_api, {
-                        skipNegotiation: true,
-                        transport: signalR.HttpTransportType.WebSockets
-                    })
-                    .configureLogging(signalR.LogLevel.Information)
-                    .build();
+                var init = () => {
+                    connection = new signalR.HubConnectionBuilder()
+                        .withUrl(_api, {
+                            skipNegotiation: true,
+                            transport: signalR.HttpTransportType.WebSockets,
+                        })
+                        .configureLogging(signalR.LogLevel.Information)
+                        .build();
 
-                return connection;
-            };
+                    return connection;
+                };
 
-            init();
+                init();
 
-            //Receive,ReceiveMsg
-            connection.on("ReceiveMsg", d => {
-                console.log('==收到websocket啦');
-                console.log(d);
-                
-                if (d && d.data != undefined)
-                    switch (d.data) {
-                        case 1:
-                        case 2:
-                        case 3:
-                        case 4:
-                            this.popmsg = d.msg;
-                            this.newInfo = true;
-                            this.patientId = d.exten.patientId;
-                            break;
-                        default:
-                            d.msg && this.openMsg(d.msg);
-                            break;
+                //Receive,ReceiveMsg
+                connection.on('ReceiveMessage', (d) => {
+                    console.log('收到websocket啦', d);
+                    if (d && d != undefined) {
+                        var data = JSON.parse(d);
+                        console.log('msg:' + data.Msg);
                     }
-            });
+                });
 
-            let _rmsg = () => {
-                var _m = "当前网络已经中断,正在重连中.....";
-                console.error(_m);
-            };
+                let _rmsg = (s, stats) => {
+                    if (stats === 1) {
+                        console.log(_api + s);
+                    } else {
+                        console.error(_api + '，当前网络' + s + ',5秒后重连');
+                        setTimeout(() => start(), 5000);
+                    }
+                };
 
-            async function start() {
-                try {
-                    await connection.start();
-                    console.log("signalR connected");
-                } catch (err) {
-                    console.log("signalR connected error");
-                    console.log("满足");
-                    _rmsg();
-                    setTimeout(() => start(), 5000);
+                async function start() {
+                    try {
+                        await connection.start();
+                        _rmsg('signalR 连接成功', 1);
+                    } catch (err) {
+                        _rmsg('连接出错');
+                    }
                 }
-            }
 
-            start();
+                connection.onclose(async () => {
+                    _rmsg('连接关闭');
+                });
 
-            connection.onclose(async () => {
-                console.log("signalR onclose...");
-                _rmsg();
-                await start();
-            });
-        }
+                start();
+            };
+        </script>
+    </head>
 
-        setTimeout(start, 1000);
-    </script>
-</head>
+    <body>
+        <div>
+            <table style="width: 95%; margin: 10px auto">
+                <thead>
+                    <tr>
+                        <th>websocket+rabbitmq</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button onclick="start()">开 启</button>
 
-<body>
-    <div>
-
-    </div>
-</body>
-
+                            <button onclick="send()">发 送</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
 </html>

@@ -1,0 +1,32 @@
+table tbody tr.odd {
+    background-color: #f7f7f7;
+}
+
+table tbody tr.even {
+    background-color: #fff;
+}
+
+table tbody tr:hover {
+    background-color: rgb(9, 245, 9);
+}
+
+table tbody td {
+    color: rgb(14, 13, 13);
+    padding: 2px;
+    border: 0;
+}
+
+table tbody tr:hover td {
+    color: #444;
+}
+
+table,
+table tr th,
+table tr td {
+    border: 1px solid #0094ff;
+}
+
+table {
+    text-align: center;
+    border-collapse: collapse;
+}
