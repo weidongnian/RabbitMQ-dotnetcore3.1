@@ -79,7 +79,9 @@
         // Stomp.js boilerplate
         if (typeof WebSocket === 'function') {
             console.log('ws协议...');
-            ws = new WebSocket('ws://192.168.0.253:15674/ws');
+            //ws = new WebSocket('ws://192.168.0.253:15674/ws');
+            //ws = new WebSocket('ws://127.0.0.1:15674/ws');
+            ws = new WebSocket('ws://127.0.0.1:9888/sixcenterws');
             //wss://dev.szyjian.com/sz
             //ws = new WebSocket('wss://dev.szyjian.com/sz');
         }
@@ -150,8 +152,8 @@
 
         // Conect to RabbitMQ
         var headers = {
-            login: 'guest',
-            passcode: 'guest',
+            login: 'yjian',
+            passcode: 'yjian',
             // additional header
             'client-id': 'wdn-client-id-2',
         };
