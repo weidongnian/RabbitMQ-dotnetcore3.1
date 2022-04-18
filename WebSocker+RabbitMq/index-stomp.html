@@ -48,7 +48,9 @@
             console.log('ws协议...');
             //ws = new WebSocket('ws://192.168.0.253:15674/ws');
             //ws = new WebSocket('ws://127.0.0.1:15674/ws');
-            ws = new WebSocket('ws://127.0.0.1:9888/sixcenterws');
+            //ws = new WebSocket('ws://127.0.0.1:9888/sixcenterws');
+            //ws = new WebSocket('ws://192.168.1.162:15674/ws');
+            ws = new WebSocket('ws://192.168.1.162/ws-rabbitmq/ws');
             //wss://dev.szyjian.com/sz
             //ws = new WebSocket('wss://dev.szyjian.com/sz');
         }
@@ -119,8 +121,8 @@
 
         // Conect to RabbitMQ
         var headers = {
-            login: 'yjian',
-            passcode: 'yjian',
+            login: 'guest',
+            passcode: 'guest',
             // additional header
             'client-id': 'wdn-client-id-2',
         };
@@ -130,7 +132,7 @@
 
     var send = function () {
         client.send(
-            '/exchange/EquipmentEvents/websocker',
+            '/exchange/EquipmentEvents/SixCenterMessage',
             {
                 'x-queue-name': 'wdn-q',
             },

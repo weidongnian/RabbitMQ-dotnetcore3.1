@@ -3,11 +3,13 @@
 namespace MQConfig
 {
    public class Config {
-        public string HostName { get; set; } = "127.0.0.1";
-        public string UserName { get; set; } = "yjian";
-        public string Password { get; set; } = "yjian";
-        public string QueName { get; set; } = "Factory";
+        public string HostName { get; set; } = "192.168.1.162";
+        public string UserName { get; set; } = "guest";
+        public string Password { get; set; } = "guest";
+        public string QueName { get; set; } = "Szyj.Microservice.Test.Factory";
         public string ExChangeName { get; set; } = "EquipmentEvents";
-        public string RouteKey { get; set; } = "chat";
-    }
+        public string RouteKey { get; set; } = "SynchPatientEvents";
+
+        public int Port { get; set; } = 5672;
+   }
 }
