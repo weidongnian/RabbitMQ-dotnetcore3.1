@@ -20,11 +20,17 @@ namespace MQConsumer
 
         static void StartByDirect(Config config)
         {
+            config.ExChangeName = "portal.pda";
+            config.RouteKey = "prehospital.pda.all.routingkey.赣6666888";
+            //config.RouteKey = "prehospital.pda.all.routingkey";
+            //config.RouteKey = "AAAAA";
+            config.RouteKey = "CCCCC";
+            config.QueName = "wdn_q";//+ Guid.NewGuid().ToString();
             var factory = new ConnectionFactory
             {
                 UserName = config.UserName,
                 Password = config.Password,
-                HostName = config.HostName
+                HostName = config.HostName,
             };
 
             var connection = factory.CreateConnection();
@@ -33,7 +39,9 @@ namespace MQConsumer
             
             var arguments = new Dictionary<string, object>() { { "x-queue-type", "classic" } };
             
-            channel.QueueDeclare(queue: config.QueName, durable: true, exclusive: false, autoDelete: false, arguments: arguments);
+            channel.QueueDeclare(queue: config.QueName, durable: true, exclusive: false, autoDelete: true, arguments: arguments);
+            
+            //channel.ExchangeUnbind(config.QueName, config.ExChangeName, "AAAAA");
 
             channel.QueueBind(config.QueName, config.ExChangeName, config.RouteKey);
 
