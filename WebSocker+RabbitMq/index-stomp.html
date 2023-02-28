@@ -49,8 +49,12 @@
             //ws = new WebSocket('ws://192.168.0.253:15674/ws');
             //ws = new WebSocket('ws://127.0.0.1:15674/ws');
             //ws = new WebSocket('ws://127.0.0.1:9888/sixcenterws');
-            //ws = new WebSocket('ws://192.168.1.162:15674/ws');
-            ws = new WebSocket('ws://192.168.1.162/ws-rabbitmq/ws');
+            ws = new WebSocket('ws://192.168.1.162:15674/ws');
+            ws = new WebSocket('ws://wjzz.pkuszh.com:6599/ws-rabbitmq/ws');
+            //ws = new WebSocket('ws://192.168.1.162/ws-rabbitmq/ws');
+            //ws = new WebSocket('ws://localhost/ws-rabbitmq/ws');
+            //ws = new WebSocket('ws://10.0.153.55/ws-rabbitmq/ws');
+            //ws = new WebSocket('ws://10.0.153.55:15674/ws');
             //wss://dev.szyjian.com/sz
             //ws = new WebSocket('wss://dev.szyjian.com/sz');
         }
@@ -121,7 +125,8 @@
 
         // Conect to RabbitMQ
         var headers = {
-            login: 'guest',
+            login: 'bdy.sixcenter.mq.user.7771',
+            //login: 'sixcenter123456789',
             passcode: 'guest',
             // additional header
             'client-id': 'wdn-client-id-2',

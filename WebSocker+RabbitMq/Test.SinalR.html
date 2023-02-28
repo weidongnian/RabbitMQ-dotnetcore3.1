@@ -10,16 +10,58 @@
     <script src="./signalr.7.0.0.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script> -->
     <script>
+        //import * as signalR from '@aspnet/signalr';
         //https://docs.microsoft.com/zh-cn/aspnet/core/signalr/javascript-client?view=aspnetcore-6.0&tabs=visual-studio
         var connection = null;
         //https://ocelot.readthedocs.io/en/latest/features/websockets.html
         // ocelot 要支持 websocket
-        var start = function () {
-            var _api = '/api/stroke/messaging';
-            //_api = 'http://192.168.1.162/ws/AggregateService/push';
-            //_api = 'http://localhost:9101/api/events/my-messaging-hub';
-            //_api = 'ws://192.168.0.155:5014/api/events/scis-messaging-hub';
-            _api = 'ws://192.168.1.162/ws-scis/api/events/scis-messaging-hub';
+
+        var startSinalR = function () {
+            var _api = '/scis-ws/api/patient/messaging-hub';
+
+            //==》ok 直达服务
+            _api = 'http://192.168.1.162:39810/scis-ws/api/patient/messaging-hub';
+
+            //==》ok ocelot代理
+            _api = 'http://192.168.1.162/scis-ws/api/patient/messaging-hub';
+
+            //==》ok, nginx==>服务
+            _api = 'http://192.168.1.162:7411/scis-ws/api/patient/messaging-hub';
+
+            //==》ok, nginx==>ocelot=>服务
+            _api = 'http://192.168.1.162/scis-ws/api/patient/messaging-hub';
+
+
+            //==》北大医??
+            _api = 'http://1.14.139.50:7771/scis-ws/api/patient/messaging-hub';
+
+
+            //==》南方医ok 172.28.100.99 nginx => ocelot => patient_srv
+            //registry.cn-shanghai.aliyuncs.com/shangzhe/apisrv:6.0.7
+            _api = 'https://pec.smuszh.com/scis-ws/api/patient/messaging-hub';
+
+            /**
+            location /scis-ws {
+                proxy_pass  http://192.168.1.162:39810;
+                proxy_set_header Host $host;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_http_version 1.1; 
+                proxy_set_header Connection upgrade;
+                proxy_cache_bypass $http_upgrade;
+            }
+
+            location / {
+                proxy_pass  http://192.168.1.162;
+                proxy_set_header Host $host;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_http_version 1.1; 
+                proxy_set_header Connection upgrade;
+                proxy_cache_bypass $http_upgrade;
+            }
+             **/
+
+            //_api="https://wjzz.pkuszh.com:6599/scis-ws/api/patient/messaging-hub";
+            //_api="https://pec.smuszh.com/scis-ws/api/patient/messaging-hub"
             //_api='http://192.168.1.162:59001/push';
             //_api="http://localhost:5005/push";
 
@@ -39,7 +81,15 @@
 
             //Receive,ReceiveMsg
             connection.on('ReceiveMessage', (d) => {
-                console.log('收到websocket啦', d);
+                console.log('收到websocket啦,ReceiveMessage', d);
+                if (d && d != undefined) {
+                    var data = JSON.parse(d);
+                    console.log('msg:' + data.Msg);
+                }
+            });
+
+            connection.on('Receive', (d) => {
+                console.log('收到websocket啦,Receive', d);
                 if (d && d != undefined) {
                     var data = JSON.parse(d);
                     console.log('msg:' + data.Msg);
@@ -84,7 +134,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <button onclick="start()">开 启</button>
+                        <button onclick="startSinalR()">开 启</button>
 
                         <button onclick="send()">发 送</button>
                     </td>
