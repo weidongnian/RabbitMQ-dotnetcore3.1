@@ -32,14 +32,13 @@
             _api = 'http://192.168.1.162/scis-ws/api/patient/messaging-hub';
 
 
-            //==》北大医??
-            _api = 'http://1.14.139.50:7771/scis-ws/api/patient/messaging-hub';
-
-
             //==》南方医ok 172.28.100.99 nginx => ocelot => patient_srv
             //registry.cn-shanghai.aliyuncs.com/shangzhe/apisrv:6.0.7
             _api = 'https://pec.smuszh.com/scis-ws/api/patient/messaging-hub';
 
+            //==》北大医，可以了，148==>217=>173.139=>patient_srv
+            _api = 'https://wjzz.pkuszh.com:6599/scis-ws/api/patient/messaging-hub';
+            
             /**
             location /scis-ws {
                 proxy_pass  http://192.168.1.162:39810;
@@ -58,6 +57,25 @@
                 proxy_set_header Connection upgrade;
                 proxy_cache_bypass $http_upgrade;
             }
+
+            {
+            "DownstreamPathTemplate": "/scis-ws/{everything}",
+            "DownstreamScheme": "ws",
+            "DownstreamHostAndPorts": [
+                {
+                "Host": "sixcenter-patient",
+                "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/scis-ws/{everything}",
+            "UpstreamHttpMethod": [
+                "GET",
+                "POST",
+                "DELETE",
+                "PUT",
+                "PATCH"
+            ]
+            },
              **/
 
             //_api="https://wjzz.pkuszh.com:6599/scis-ws/api/patient/messaging-hub";
